@@ -1,11 +1,51 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 
-export default function SpeakerCard({ speaker }) {
+export default function SpeakerCard({ speaker, showFavorite = false }) {
 	const { id, name, image, topic, rating, eventCount } = speaker;
+	const [isFavorited, setIsFavorited] = useState(false);
+
+	const handleFavoriteClick = (e) => {
+		e.preventDefault();
+		e.stopPropagation();
+		setIsFavorited(!isFavorited);
+	};
 
 	return (
 		<Link href={`/speakers/${id}`} className="group block">
-			<div className="card p-6 transition-all duration-300 hover:shadow-xl">
+			<div className="card relative p-6 transition-all duration-300 hover:shadow-xl">
+				{/* Favorite button */}
+				{showFavorite && (
+					<button
+						onClick={handleFavoriteClick}
+						className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-dark-bg-primary/80 backdrop-blur-sm transition-all duration-200 hover:bg-dark-bg-primary"
+						aria-label={
+							isFavorited
+								? 'Remove from favorites'
+								: 'Add to favorites'
+						}
+					>
+						<svg
+							className={`h-5 w-5 transition-colors ${
+								isFavorited
+									? 'fill-red-500 text-red-500'
+									: 'fill-none text-gray-400 hover:text-red-500'
+							}`}
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								strokeWidth={2}
+								d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+							/>
+						</svg>
+					</button>
+				)}
+
 				<div className="flex flex-col items-center text-center">
 					<div className="relative mb-4 h-32 w-32">
 						{image ? (

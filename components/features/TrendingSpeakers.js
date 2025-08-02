@@ -2,58 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import SpeakerCard from '@/components/ui/SpeakerCard';
-
-// Mock data - replace with API call
-const mockSpeakers = [
-	{
-		id: '1',
-		name: 'Dr. Sarah Chen',
-		image: null,
-		topic: 'AI & Future of Work',
-		rating: 4.9,
-		eventCount: 150,
-	},
-	{
-		id: '2',
-		name: 'Marcus Rodriguez',
-		image: null,
-		topic: 'Leadership & Innovation',
-		rating: 4.8,
-		eventCount: 200,
-	},
-	{
-		id: '3',
-		name: 'Dr. Amara Okafor',
-		image: null,
-		topic: 'Sustainability & Climate',
-		rating: 4.9,
-		eventCount: 120,
-	},
-	{
-		id: '4',
-		name: 'James Mitchell',
-		image: null,
-		topic: 'Mental Health & Wellness',
-		rating: 4.7,
-		eventCount: 180,
-	},
-	{
-		id: '5',
-		name: 'Lisa Wang',
-		image: null,
-		topic: 'Entrepreneurship',
-		rating: 4.8,
-		eventCount: 95,
-	},
-	{
-		id: '6',
-		name: 'Dr. Robert Hayes',
-		image: null,
-		topic: 'Medical Innovation',
-		rating: 4.9,
-		eventCount: 210,
-	},
-];
+import { mockSpeakers } from '@/services/searchService';
 
 export default function TrendingSpeakers() {
 	const [currentIndex, setCurrentIndex] = useState(0);

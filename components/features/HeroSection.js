@@ -1,8 +1,16 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
 import SearchBar from '@/components/ui/SearchBar';
 
 export default function HeroSection() {
+	const router = useRouter();
+
+	const handlePopularSearch = (searchTerm) => {
+		router.push(`/search?q=${encodeURIComponent(searchTerm)}`);
+	};
 	return (
-		<section className="relative overflow-hidden pb-20 pt-32">
+		<section className="relative overflow-hidden pb-20 pt-36">
 			{/* Background gradient */}
 			<div className="absolute inset-0 bg-gradient-to-b from-dark-bg-primary via-dark-bg-secondary to-dark-bg-primary opacity-50" />
 
@@ -30,19 +38,31 @@ export default function HeroSection() {
 
 					<div className="mt-8 flex flex-wrap justify-center gap-3 text-sm">
 						<span className="text-gray-400">Popular searches:</span>
-						<button className="text-purple-primary transition-colors hover:text-purple-400">
+						<button 
+							onClick={() => handlePopularSearch('AI & Technology')}
+							className="text-purple-primary transition-colors hover:text-purple-400"
+						>
 							AI & Technology
 						</button>
 						<span className="text-gray-600">•</span>
-						<button className="text-purple-primary transition-colors hover:text-purple-400">
+						<button 
+							onClick={() => handlePopularSearch('Leadership')}
+							className="text-purple-primary transition-colors hover:text-purple-400"
+						>
 							Leadership
 						</button>
 						<span className="text-gray-600">•</span>
-						<button className="text-purple-primary transition-colors hover:text-purple-400">
+						<button 
+							onClick={() => handlePopularSearch('Mental Health')}
+							className="text-purple-primary transition-colors hover:text-purple-400"
+						>
 							Mental Health
 						</button>
 						<span className="text-gray-600">•</span>
-						<button className="text-purple-primary transition-colors hover:text-purple-400">
+						<button 
+							onClick={() => handlePopularSearch('Diversity & Inclusion')}
+							className="text-purple-primary transition-colors hover:text-purple-400"
+						>
 							Diversity & Inclusion
 						</button>
 					</div>

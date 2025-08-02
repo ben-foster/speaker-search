@@ -1,36 +1,11 @@
 import Link from 'next/link';
+import { getAllTopics, getSpeakerCountForTopic } from '@/services/topicService';
+import { mockSpeakers } from '@/services/searchService';
 
-const topics = [
-	{
-		id: 'business',
-		name: 'Business',
-		image: '/topics/business.jpg',
-		gradient: 'from-orange-500 to-red-500',
-	},
-	{
-		id: 'military',
-		name: 'Military',
-		image: '/topics/military.jpg',
-		gradient: 'from-gray-600 to-gray-800',
-	},
-	{
-		id: 'sports',
-		name: 'Sports',
-		image: '/topics/sports.jpg',
-		gradient: 'from-pink-500 to-rose-500',
-	},
-];
-
-const topicButtons = [
-	'Leadership',
-	'Entertainment',
-	'Social Justice',
-	'Celebrities',
-	'Technology',
-	'Mental Health',
-	'Politics',
-	'Sustainability',
-];
+// Get featured topics (first 3) and topic buttons (remaining topics)
+const allTopics = getAllTopics();
+const featuredTopics = allTopics.slice(0, 3);
+const topicButtons = allTopics.slice(3).map((topic) => topic.name);
 
 export default function PopularTopics() {
 	return (
@@ -40,39 +15,58 @@ export default function PopularTopics() {
 					Popular Speaking Topics
 				</h2>
 
-				{/* Featured Topics with Images */}
+				{/* Featured Topics with Gradients */}
 				<div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-					{topics.map((topic) => (
-						<Link
-							key={topic.id}
-							href={`/topics/${topic.id}`}
-							className="group relative h-64 overflow-hidden rounded-2xl"
-						>
-							<div
-								className={`absolute inset-0 bg-gradient-to-br ${topic.gradient} opacity-80`}
-							/>
-							<div className="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/20" />
+					{featuredTopics.map((topic) => {
+						const speakerCount = getSpeakerCountForTopic(
+							topic.name,
+							mockSpeakers
+						);
+						return (
+							<Link
+								key={topic.slug}
+								href={`/topics/${topic.slug}`}
+								className="group relative h-64 overflow-hidden rounded-2xl"
+							>
+								<div
+									className={`absolute inset-0 bg-gradient-to-br ${topic.gradient} opacity-80`}
+								/>
+								<div className="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/20" />
 
-							<div className="relative z-10 flex h-full items-center justify-center">
-								<h3 className="font-poppins text-2xl font-bold text-white transition-transform duration-300 group-hover:scale-110">
-									{topic.name}
-								</h3>
-							</div>
-						</Link>
-					))}
+								<div className="relative z-10 flex h-full flex-col items-center justify-center text-center">
+									<div className="mb-2 text-4xl">
+										{topic.icon}
+									</div>
+									<h3 className="mb-2 font-poppins text-2xl font-bold text-white transition-transform duration-300 group-hover:scale-110">
+										{topic.name}
+									</h3>
+									{speakerCount > 0 && (
+										<p className="text-sm text-white/80">
+											{speakerCount} speakers available
+										</p>
+									)}
+								</div>
+							</Link>
+						);
+					})}
 				</div>
 
 				{/* Topic Buttons Grid */}
 				<div className="mb-8 grid grid-cols-2 gap-4 md:grid-cols-4">
-					{topicButtons.map((topic) => (
-						<Link
-							key={topic}
-							href={`/topics/${topic.toLowerCase().replace(/\s+/g, '-')}`}
-							className="rounded-full border border-gray-700 px-6 py-4 text-center transition-all duration-200 hover:border-purple-primary hover:text-purple-primary"
-						>
-							{topic}
-						</Link>
-					))}
+					{topicButtons.map((topicName) => {
+						const topicData = allTopics.find(
+							(t) => t.name === topicName
+						);
+						return (
+							<Link
+								key={topicName}
+								href={`/topics/${topicData?.slug || topicName.toLowerCase().replace(/\s+/g, '-')}`}
+								className="rounded-full border border-gray-700 px-6 py-4 text-center transition-all duration-200 hover:border-purple-primary hover:text-purple-primary"
+							>
+								{topicName}
+							</Link>
+						);
+					})}
 				</div>
 
 				{/* All Topics Button */}

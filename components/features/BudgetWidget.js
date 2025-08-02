@@ -7,10 +7,48 @@ export default function BudgetWidget() {
 	const [budget, setBudget] = useState('');
 	const router = useRouter();
 
+	const parseBudgetInput = (input) => {
+		// Remove common characters and convert to lowercase
+		const cleaned = input.toLowerCase().replace(/[\$,\s]/g, '');
+
+		// Handle range inputs like "5k-15k" or "10000-20000"
+		if (cleaned.includes('-')) {
+			const [min, max] = cleaned.split('-');
+			const minValue = convertToNumber(min);
+			const maxValue = convertToNumber(max);
+			// Use the maximum value for budget filtering
+			return maxValue || minValue || 50000;
+		}
+
+		// Handle single values
+		return convertToNumber(cleaned) || 50000;
+	};
+
+	const convertToNumber = (str) => {
+		if (!str) return null;
+
+		// Handle 'k' suffix (thousands)
+		if (str.includes('k')) {
+			const num = parseFloat(str.replace('k', ''));
+			return num * 1000;
+		}
+
+		// Handle 'm' suffix (millions)
+		if (str.includes('m')) {
+			const num = parseFloat(str.replace('m', ''));
+			return num * 1000000;
+		}
+
+		// Handle regular numbers
+		const num = parseFloat(str);
+		return isNaN(num) ? null : num;
+	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (budget) {
-			router.push(`/search?budget=${encodeURIComponent(budget)}`);
+		if (budget.trim()) {
+			const numericBudget = parseBudgetInput(budget);
+			router.push(`/search?budget=${numericBudget}`);
 		}
 	};
 
@@ -54,11 +92,11 @@ export default function BudgetWidget() {
 										onChange={(e) =>
 											setBudget(e.target.value)
 										}
-										placeholder="My budget is $$$..."
+										placeholder="e.g. 10k or 5k-15k"
 										className="input-primary text-center text-lg"
 									/>
 									<p className="mt-2 text-center text-sm text-gray-400">
-										Example: $10,000 or $5k-15k
+										Examples: 10k, $15,000, 5k-15k, or 25000
 									</p>
 								</div>
 
