@@ -40,7 +40,7 @@ export default function FAQSection() {
 					Search Questions & Answers
 				</h2>
 				<p className="mx-auto max-w-2xl text-xl text-gray-300">
-					Use the search bar or browse by category to find exactly what you're looking for.
+					Use the search bar or browse by category to find exactly what you&apos;re looking for.
 				</p>
 			</div>
 
@@ -91,7 +91,7 @@ export default function FAQSection() {
 			{searchQuery && (
 				<div className="mb-6 text-center">
 					<p className="text-gray-400">
-						Found <span className="text-purple-primary font-semibold">{filteredFAQs.length}</span> result{filteredFAQs.length !== 1 ? 's' : ''} for "{searchQuery}"
+						Found <span className="text-purple-primary font-semibold">{filteredFAQs.length}</span> result{filteredFAQs.length !== 1 ? 's' : ''} for &quot;{searchQuery}&quot;
 						{selectedCategory !== 'all' && (
 							<span> in <span className="text-purple-primary">{categories.find(c => c.id === selectedCategory)?.name}</span></span>
 						)}

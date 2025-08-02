@@ -57,7 +57,7 @@ export default function PrivacyPolicyPage() {
 									8. International Transfers
 								</a>
 								<a href="#children-privacy" className="block text-purple-primary hover:underline">
-									9. Children's Privacy
+									9. Children&apos;s Privacy
 								</a>
 								<a href="#contact-us" className="block text-purple-primary hover:underline">
 									10. Contact Us
@@ -77,7 +77,7 @@ export default function PrivacyPolicyPage() {
 								</h2>
 								<div className="space-y-4 text-gray-300 leading-relaxed">
 									<p>
-										Speaker Search ("we," "our," or "us") is committed to protecting your privacy. 
+										Speaker Search (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. 
 										This Privacy Policy explains how we collect, use, disclose, and safeguard your 
 										information when you visit our website and use our services.
 									</p>
@@ -301,7 +301,7 @@ export default function PrivacyPolicyPage() {
 									</ul>
 									<p>
 										To exercise these rights, please contact us using the information provided 
-										in the "Contact Us" section. We will respond to your request within the 
+										in the &quot;Contact Us&quot; section. We will respond to your request within the 
 										timeframe required by applicable law.
 									</p>
 								</div>
@@ -363,7 +363,7 @@ export default function PrivacyPolicyPage() {
 							{/* Children's Privacy */}
 							<section id="children-privacy" className="card p-8">
 								<h2 className="mb-6 font-poppins text-2xl font-bold">
-									9. Children's Privacy
+									9. Children&apos;s Privacy
 								</h2>
 								<div className="space-y-4 text-gray-300 leading-relaxed">
 									<p>
@@ -391,7 +391,7 @@ export default function PrivacyPolicyPage() {
 									<p>
 										We may update this Privacy Policy from time to time. We will notify you of 
 										any changes by posting the new Privacy Policy on this page and updating the 
-										"Last Updated" date.
+										&quot;Last Updated&quot; date.
 									</p>
 									<p>
 										For material changes, we will provide additional notice, such as sending an 

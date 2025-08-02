@@ -126,7 +126,7 @@ export default function BlogSection() {
 				<p className="text-gray-400">
 					{searchQuery ? (
 						<>
-							Found <span className="text-purple-primary font-semibold">{filteredPosts.length}</span> result{filteredPosts.length !== 1 ? 's' : ''} for "{searchQuery}"
+							Found <span className="text-purple-primary font-semibold">{filteredPosts.length}</span> result{filteredPosts.length !== 1 ? 's' : ''} for &quot;{searchQuery}&quot;
 							{selectedCategory !== 'all' && (
 								<span> in <span className="text-purple-primary">{categories.find(c => c.id === selectedCategory)?.name}</span></span>
 							)}

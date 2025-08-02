@@ -135,7 +135,7 @@ export default function FAQPage() {
 								Still Need Help?
 							</h2>
 							<p className="mb-8 text-gray-300 max-w-2xl mx-auto">
-								Can't find the answer you're looking for? Our support team is here 
+								Can&apos;t find the answer you&apos;re looking for? Our support team is here 
 								to help you with any questions or issues you might have.
 							</p>
 							
@@ -148,7 +148,7 @@ export default function FAQPage() {
 									</div>
 									<h3 className="font-semibold text-white mb-2">Contact Support</h3>
 									<p className="text-sm text-gray-400 text-center mb-4">
-										Send us a message and we'll get back to you within 24 hours
+										Send us a message and we&apos;ll get back to you within 24 hours
 									</p>
 									<a
 										href="/contact"

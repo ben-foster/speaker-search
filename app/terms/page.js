@@ -89,8 +89,8 @@ export default function TermsOfServicePage() {
 								</h2>
 								<div className="space-y-4 text-gray-300 leading-relaxed">
 									<p>
-										These Terms of Service ("Terms") constitute a legally binding agreement between 
-										you and Speaker Search ("Company," "we," "us," or "our") regarding your use 
+										These Terms of Service (&quot;Terms&quot;) constitute a legally binding agreement between 
+										you and Speaker Search (&quot;Company,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) regarding your use 
 										of our platform and services.
 									</p>
 									<p>
@@ -403,7 +403,7 @@ export default function TermsOfServicePage() {
 								</h2>
 								<div className="space-y-4 text-gray-300 leading-relaxed">
 									<p>
-										OUR PLATFORM IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES 
+										OUR PLATFORM IS PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT WARRANTIES 
 										OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO 
 										WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND 
 										NON-INFRINGEMENT.

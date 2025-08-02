@@ -19,7 +19,7 @@ export default function ContactPage() {
 							Contact Us
 						</h1>
 						<p className="mx-auto max-w-3xl text-xl text-gray-300 md:text-2xl">
-							Have a question or need assistance? We're here to help you find 
+							Have a question or need assistance? We&apos;re here to help you find 
 							the perfect speakers for your events or support your speaking career.
 						</p>
 					</div>

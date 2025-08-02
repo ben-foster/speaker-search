@@ -271,7 +271,7 @@ export default function CookiePolicyPage() {
 											Browser Settings
 										</h3>
 										<p className="mb-3">
-											You can control cookies through your browser settings. Here's how 
+											You can control cookies through your browser settings. Here&apos;s how 
 											to manage cookies in popular browsers:
 										</p>
 										<ul className="list-disc pl-6 space-y-2">
@@ -289,7 +289,7 @@ export default function CookiePolicyPage() {
 										<p>
 											We provide a cookie consent banner when you first visit our platform. 
 											You can update your preferences at any time by clicking the 
-											"Cookie Settings" link in our footer.
+											&quot;Cookie Settings&quot; link in our footer.
 										</p>
 									</div>
 
@@ -426,7 +426,7 @@ export default function CookiePolicyPage() {
 										in our practices or applicable laws. When we make changes, we will:
 									</p>
 									<ul className="list-disc pl-6 space-y-2">
-										<li>Update the "Last Updated" date at the top of this policy</li>
+										<li>Update the &quot;Last Updated&quot; date at the top of this policy</li>
 										<li>Notify you through our platform or via email for significant changes</li>
 										<li>Request renewed consent where required by law</li>
 									</ul>
