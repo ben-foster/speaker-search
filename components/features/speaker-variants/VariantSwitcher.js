@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function VariantSwitcher({ currentVariant, speakerId }) {
 	const variants = [
 		{ number: 1, name: 'Image Gallery', color: 'from-purple-600 to-purple-700' },
-		{ number: 2, name: 'Single Featured Image', color: 'from-blue-600 to-blue-700' },
+		{ number: 2, name: 'Single Featured Image', color: 'from-purple-600 to-purple-700' },
 	];
 
 	return (
