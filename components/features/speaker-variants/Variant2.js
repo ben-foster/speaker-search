@@ -1,7 +1,22 @@
 'use client';
 
 import { useState } from 'react';
-import { getSimilarSpeakerImage } from '@/services/placeholderService';
+import { ShareIcon } from '@heroicons/react/24/outline';
+
+// Jerry Rice images for similar speakers
+const jerryRiceImages = [
+	'/jerry-rice/jerry-rice-primary.jpg',
+	'/jerry-rice/jerry-rice-secondary-1.jpeg',
+	'/jerry-rice/jerry-rice-secondary-2.webp',
+	'/jerry-rice/jerry-rice-secondary-3.png',
+	'/jerry-rice/jerry-rice-secondary-4.webp',
+	'/jerry-rice/jerry-rice-secondary-5.jpg',
+	'/jerry-rice/jerry-rice-secondary-6.jpeg'
+];
+
+const getJerryRiceImage = (index) => {
+	return jerryRiceImages[index % jerryRiceImages.length];
+};
 
 export default function Variant2({ speaker }) {
 	const [showBioFull, setShowBioFull] = useState(false);
@@ -19,192 +34,191 @@ export default function Variant2({ speaker }) {
 			name: 'Billy Misters',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Billy Misters', 0),
+			image: getJerryRiceImage(0),
 		},
 		{
 			name: 'Sherri Berry',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Sherri Berry', 1),
+			image: getJerryRiceImage(1),
 		},
 		{
 			name: 'Johnny Tsunami',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Johnny Tsunami', 2),
+			image: getJerryRiceImage(2),
 		},
 		{
 			name: 'Kayley Williams',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Kayley Williams', 3),
+			image: getJerryRiceImage(3),
 		},
 		{
 			name: 'David Bonesworth',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('David Bonesworth', 4),
+			image: getJerryRiceImage(4),
 		},
 		{
 			name: 'Billy Misters',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Billy Misters', 5),
+			image: getJerryRiceImage(5),
 		},
 		{
 			name: 'Sherri Berry',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Sherri Berry', 6),
+			image: getJerryRiceImage(6),
 		},
 		{
 			name: 'Johnny Tsunami',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Johnny Tsunami', 7),
+			image: getJerryRiceImage(7),
 		},
 		{
 			name: 'Kayley Williams',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Kayley Williams', 8),
+			image: getJerryRiceImage(8),
 		},
 		{
 			name: 'David Bonesworth',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('David Bonesworth', 9),
+			image: getJerryRiceImage(9),
 		},
 		{
 			name: 'Billy Misters',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Billy Misters', 10),
+			image: getJerryRiceImage(10),
 		},
 		{
 			name: 'Sherri Berry',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Sherri Berry', 11),
+			image: getJerryRiceImage(11),
 		},
 		{
 			name: 'Johnny Tsunami',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Johnny Tsunami', 12),
+			image: getJerryRiceImage(12),
 		},
 		{
 			name: 'Kayley Williams',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Kayley Williams', 13),
+			image: getJerryRiceImage(13),
 		},
 		{
 			name: 'David Bonesworth',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('David Bonesworth', 14),
+			image: getJerryRiceImage(14),
 		},
 		{
 			name: 'Billy Misters',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Billy Misters', 15),
+			image: getJerryRiceImage(15),
 		},
 		{
 			name: 'Sherri Berry',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Sherri Berry', 16),
+			image: getJerryRiceImage(16),
 		},
 		{
 			name: 'Johnny Tsunami',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Johnny Tsunami', 17),
+			image: getJerryRiceImage(17),
 		},
 		{
 			name: 'Kayley Williams',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Kayley Williams', 18),
+			image: getJerryRiceImage(18),
 		},
 		{
 			name: 'David Bonesworth',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('David Bonesworth', 19),
+			image: getJerryRiceImage(19),
 		},
 		{
 			name: 'Billy Misters',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Billy Misters', 20),
+			image: getJerryRiceImage(20),
 		},
 		{
 			name: 'Sherri Berry',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Sherri Berry', 21),
+			image: getJerryRiceImage(21),
 		},
 		{
 			name: 'Johnny Tsunami',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Johnny Tsunami', 22),
+			image: getJerryRiceImage(22),
 		},
 		{
 			name: 'Kayley Williams',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Kayley Williams', 23),
+			image: getJerryRiceImage(23),
 		},
 		{
 			name: 'David Bonesworth',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('David Bonesworth', 24),
+			image: getJerryRiceImage(24),
 		},
 		{
 			name: 'Billy Misters',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Billy Misters', 25),
+			image: getJerryRiceImage(25),
 		},
 		{
 			name: 'Sherri Berry',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Sherri Berry', 26),
+			image: getJerryRiceImage(26),
 		},
 		{
 			name: 'Johnny Tsunami',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Johnny Tsunami', 27),
+			image: getJerryRiceImage(27),
 		},
 		{
 			name: 'Kayley Williams',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('Kayley Williams', 28),
+			image: getJerryRiceImage(28),
 		},
 		{
 			name: 'David Bonesworth',
 			fee: '$50,000 - $100,000',
 			topic: 'Sports Motivation',
-			image: getSimilarSpeakerImage('David Bonesworth', 29),
+			image: getJerryRiceImage(29),
 		},
 	];
 
-	// Pagination for similar speakers (30 per page, 3 pages total)
-	const speakersPerPage = 30;
+	// Pagination for similar speakers (10 per page, 3 pages total)
+	const speakersPerPage = 10;
 	const totalPages = 3;
 	const currentPage = Math.floor(activeSimilarSpeaker / speakersPerPage) + 1;
-	const currentPageSpeakers = allSimilarSpeakers.slice(
-		activeSimilarSpeaker,
-		activeSimilarSpeaker + speakersPerPage
-	);
+	const startIndex = (currentPage - 1) * speakersPerPage;
+	const endIndex = startIndex + speakersPerPage;
+	const currentPageSpeakers = allSimilarSpeakers.slice(startIndex, endIndex);
 
 	const toggleFavorite = (speakerName) => {
 		setFavoriteStates((prev) => ({
@@ -228,14 +242,8 @@ export default function Variant2({ speaker }) {
 						<div className="lg:col-span-8">
 							{/* Speaker Header with Image and Name/Title */}
 							<div className="mb-8 flex items-center gap-6">
-								{/* Speaker Image - Square, Full Height */}
-								<div
-									className="aspect-square min-h-0 flex-shrink-0 self-stretch overflow-hidden rounded-xl"
-									style={{
-										width: 'auto',
-										aspectRatio: '1/1',
-									}}
-								>
+								{/* Speaker Image - Square, Large Size */}
+								<div className="h-80 w-80 flex-shrink-0 overflow-hidden rounded-lg">
 									<img
 										src={speaker.image}
 										alt={speaker.name}
@@ -573,54 +581,13 @@ export default function Variant2({ speaker }) {
 										</button>
 									</div>
 									<div className="ml-8 flex-shrink-0">
-										{/* Money bag icon */}
-										<div className="flex h-24 w-24 items-center justify-center">
-											<svg
-												className="h-20 w-20 text-purple-400"
-												fill="currentColor"
-												viewBox="0 0 100 100"
-											>
-												{/* Money bag shape */}
-												<path d="M30 25 Q30 15 40 15 L60 15 Q70 15 70 25 L70 30 Q70 35 65 35 Q72 40 75 50 Q78 60 78 70 Q78 85 65 85 L35 85 Q22 85 22 70 Q22 60 25 50 Q28 40 35 35 Q30 35 30 30 Z" />
-												{/* Rope/tie at top */}
-												<rect
-													x="42"
-													y="12"
-													width="3"
-													height="8"
-													rx="1"
-												/>
-												<rect
-													x="48"
-													y="12"
-													width="3"
-													height="8"
-													rx="1"
-												/>
-												<rect
-													x="54"
-													y="12"
-													width="3"
-													height="8"
-													rx="1"
-												/>
-												{/* Dollar sign */}
-												<path
-													d="M50 45 Q45 45 45 50 Q45 55 50 55 Q55 55 55 50 Q55 45 50 45 Z"
-													fill="white"
-												/>
-												<rect
-													x="49"
-													y="40"
-													width="2"
-													height="20"
-													fill="white"
-												/>
-												<path
-													d="M45 48 Q42 48 42 45 Q42 42 45 42 L55 42 Q58 42 58 45 Q58 48 55 48 M45 52 Q42 52 42 55 Q42 58 45 58 L55 58 Q58 58 58 55 Q58 52 55 52"
-													fill="white"
-												/>
-											</svg>
+										{/* Money bag image */}
+										<div className="flex h-40 w-40 items-center justify-center">
+											<img
+												src="/jerry-rice/Money bag.png"
+												alt="Money bag"
+												className="h-36 w-36 object-contain"
+											/>
 										</div>
 									</div>
 								</div>
@@ -667,11 +634,11 @@ export default function Variant2({ speaker }) {
 												key={idx}
 												className="flex items-start gap-4 rounded-lg bg-purple-800/30 p-4 transition-colors hover:bg-purple-800/50"
 											>
-												<div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded bg-purple-600 text-sm font-bold text-white">
+												<div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded bg-purple-600 text-sm font-bold text-white">
 													<img
 														src={coverage.logo}
 														alt={`${coverage.outlet} favicon`}
-														className="h-6 w-6 object-contain"
+														className="h-12 w-12 object-contain"
 														onError={(e) => {
 															e.target.style.display =
 																'none';
@@ -818,8 +785,12 @@ export default function Variant2({ speaker }) {
 								{/* Main CTA Card */}
 								<div className="mb-6 rounded-xl border border-purple-700 bg-purple-900/50 p-8">
 									{/* Header */}
-									<div className="mb-6 flex items-center gap-3">
-										<span className="text-xl">⚡</span>
+									<div className="mb-6 flex items-center gap-1">
+										<img
+											src="/jerry-rice/Lightning bolt.png"
+											alt="Lightning bolt"
+											className="h-8 w-8 object-contain"
+										/>
 										<h3 className="text-2xl font-semibold text-white">
 											{speaker.name} at a glance
 										</h3>
@@ -871,8 +842,8 @@ export default function Variant2({ speaker }) {
 
 										{/* Price Popup */}
 										{showPricePopup && (
-											<div className="absolute left-0 top-full z-20 mt-2 w-72 rounded-lg border border-purple-600 bg-purple-800 p-6 shadow-xl">
-												<div className="text-base leading-relaxed text-white">
+											<div className="absolute left-0 bottom-full z-20 mb-2 w-72 rounded-lg border border-purple-600 bg-purple-800 p-6 shadow-xl">
+												<div className="text-sm leading-relaxed text-white">
 													<p className="mb-3">
 														Fees often vary based on
 														a number of factors
@@ -932,19 +903,7 @@ export default function Variant2({ speaker }) {
 											save
 										</button>
 										<button className="flex items-center gap-2 rounded-full border border-gray-500 px-6 py-2 text-base text-gray-400 hover:border-white hover:text-white">
-											<svg
-												className="h-5 w-5"
-												fill="none"
-												stroke="currentColor"
-												viewBox="0 0 24 24"
-											>
-												<path
-													strokeLinecap="round"
-													strokeLinejoin="round"
-													strokeWidth={2}
-													d="M12 3l8 8-8 8m0 0l-3-3m3 3H5"
-												/>
-											</svg>
+											<ShareIcon className="h-5 w-5" />
 											share
 										</button>
 									</div>
@@ -973,11 +932,7 @@ export default function Variant2({ speaker }) {
 								<button
 									onClick={() =>
 										setActiveSimilarSpeaker(
-											Math.max(
-												0,
-												activeSimilarSpeaker -
-													speakersPerPage
-											)
+											(currentPage - 2) * speakersPerPage
 										)
 									}
 									disabled={currentPage === 1}
@@ -988,12 +943,7 @@ export default function Variant2({ speaker }) {
 								<button
 									onClick={() =>
 										setActiveSimilarSpeaker(
-											Math.min(
-												(totalPages - 1) *
-													speakersPerPage,
-												activeSimilarSpeaker +
-													speakersPerPage
-											)
+											currentPage * speakersPerPage
 										)
 									}
 									disabled={currentPage === totalPages}
@@ -1004,7 +954,7 @@ export default function Variant2({ speaker }) {
 							</div>
 						</div>
 
-						{/* 6 rows x 5 columns = 30 speakers per page */}
+						{/* 2 rows x 5 columns = 10 speakers per page */}
 						<div className="grid grid-cols-5 gap-4">
 							{currentPageSpeakers.map((speakerItem, index) => (
 								<div
@@ -1100,11 +1050,7 @@ export default function Variant2({ speaker }) {
 								<button
 									onClick={() =>
 										setActiveSimilarSpeaker(
-											Math.max(
-												0,
-												activeSimilarSpeaker -
-													speakersPerPage
-											)
+											(currentPage - 2) * speakersPerPage
 										)
 									}
 									disabled={currentPage === 1}
@@ -1115,12 +1061,7 @@ export default function Variant2({ speaker }) {
 								<button
 									onClick={() =>
 										setActiveSimilarSpeaker(
-											Math.min(
-												(totalPages - 1) *
-													speakersPerPage,
-												activeSimilarSpeaker +
-													speakersPerPage
-											)
+											currentPage * speakersPerPage
 										)
 									}
 									disabled={currentPage === totalPages}

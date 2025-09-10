@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const footerLinks = {
 	company: [
@@ -30,29 +31,16 @@ export default function Footer() {
 				<div className="grid grid-cols-1 gap-8 md:grid-cols-5">
 					{/* Logo and Description */}
 					<div className="md:col-span-2">
-						<div className="mb-4 flex items-center space-x-3">
-							<div className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-primary">
-								<svg
-									viewBox="0 0 24 24"
-									fill="none"
-									className="h-6 w-6 text-white"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<circle
-										cx="12"
-										cy="9"
-										r="3"
-										fill="currentColor"
-									/>
-									<path
-										d="M12 14C9 14 7 15.5 7 17.5V18H17V17.5C17 15.5 15 14 12 14Z"
-										fill="currentColor"
-									/>
-								</svg>
-							</div>
-							<span className="font-poppins text-xl font-bold">
-								Speaker Search
-							</span>
+						<div className="mb-4">
+							<Link href="/" className="inline-block">
+								<Image
+									src="/logo.png"
+									alt="Speaker Search"
+									width={160}
+									height={40}
+									className="h-8 w-auto"
+								/>
+							</Link>
 						</div>
 						<p className="max-w-xs text-sm text-gray-400">
 							The most comprehensive speaker database with natural
