@@ -232,7 +232,7 @@ export default function Variant1({ speaker }) {
 	};
 
 	return (
-		<div className="min-h-screen" style={{ backgroundColor: '#1a0b2e' }}>
+		<div className="min-h-screen bg-dark-bg-primary">
 			{/* Full Width Media Gallery */}
 			<div className="pb-0 pt-20">
 				{/* Media Gallery - CSS Grid Layout */}
@@ -372,7 +372,7 @@ export default function Variant1({ speaker }) {
 							</div>
 
 							{/* About Section */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-purple-900/50 p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
 								<div className="mb-6 flex items-center justify-between">
 									<h2 className="text-3xl font-semibold text-white">
 										About {speaker.name}
@@ -385,7 +385,7 @@ export default function Variant1({ speaker }) {
 											className={`w-24 rounded-full py-2 text-sm font-medium transition-colors ${
 												!showBioFull
 													? 'bg-purple-600 text-white'
-													: 'bg-purple-800 text-purple-300 hover:bg-purple-700 hover:text-white'
+													: 'bg-dark-bg-primary border border-purple-600 text-purple-300 hover:bg-purple-700 hover:text-white'
 											}`}
 										>
 											highlights
@@ -395,7 +395,7 @@ export default function Variant1({ speaker }) {
 											className={`w-24 rounded-full py-2 text-sm font-medium transition-colors ${
 												showBioFull
 													? 'bg-purple-600 text-white'
-													: 'bg-purple-800 text-purple-300 hover:bg-purple-700 hover:text-white'
+													: 'bg-dark-bg-primary border border-purple-600 text-purple-300 hover:bg-purple-700 hover:text-white'
 											}`}
 										>
 											full bio
@@ -438,7 +438,7 @@ export default function Variant1({ speaker }) {
 							</div>
 
 							{/* Featured Testimonials */}
-							<div className="mb-6 rounded-xl border border-yellow-400 bg-purple-900/50 p-8">
+							<div className="mb-6 rounded-xl border border-yellow-400 bg-dark-bg-primary p-8">
 								<div className="mb-4 flex justify-end">
 									<div className="flex gap-3">
 										<button
@@ -530,7 +530,7 @@ export default function Variant1({ speaker }) {
 							</div>
 
 							{/* Speech Topics */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-purple-900/50 p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
 								<div className="mb-4 flex items-center justify-between">
 									<h3 className="text-3xl font-semibold text-white">
 										Speech topics
@@ -631,7 +631,7 @@ export default function Variant1({ speaker }) {
 							</div>
 
 							{/* Speaking Videos */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-purple-900/50 p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
 								<div className="mb-6 flex items-center justify-between">
 									<h3 className="text-3xl font-semibold text-white">
 										Speaking videos
@@ -660,7 +660,7 @@ export default function Variant1({ speaker }) {
 							</div>
 
 							{/* Media Coverage */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-purple-900/50 p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
 								<h3 className="mb-6 text-3xl font-semibold text-white">
 									Media coverage
 								</h3>
@@ -669,7 +669,7 @@ export default function Variant1({ speaker }) {
 										(coverage, idx) => (
 											<div
 												key={idx}
-												className="flex items-start gap-4 rounded-lg bg-purple-800/30 p-4 transition-colors hover:bg-purple-800/50"
+												className="flex items-start gap-4 rounded-lg bg-dark-bg-primary/50 p-4 transition-colors hover:bg-dark-bg-secondary/80"
 											>
 												<div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded bg-purple-600 text-sm font-bold text-white">
 													<img
@@ -709,7 +709,7 @@ export default function Variant1({ speaker }) {
 							</div>
 
 							{/* Books */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-purple-900/50 p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
 								<h3 className="mb-6 text-3xl font-semibold text-white">
 									Books by {speaker.name}
 								</h3>
@@ -717,7 +717,7 @@ export default function Variant1({ speaker }) {
 									{speaker.books?.map((book, idx) => (
 										<div
 											key={idx}
-											className="flex gap-6 rounded-lg bg-purple-800/30 p-6"
+											className="flex gap-6 rounded-lg bg-dark-bg-primary/50 p-6"
 										>
 											<img
 												src={book.image}
@@ -739,7 +739,7 @@ export default function Variant1({ speaker }) {
 							</div>
 
 							{/* FAQs */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-purple-900/50 p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
 								<h3 className="mb-6 text-3xl font-semibold text-white">
 									FAQs on booking {speaker.name}
 								</h3>
@@ -781,7 +781,7 @@ export default function Variant1({ speaker }) {
 							</div>
 
 							{/* Featured Lists */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-purple-900/50 p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
 								<h3 className="mb-6 text-3xl font-semibold text-white">
 									{speaker.name} is featured on these lists
 								</h3>
@@ -807,7 +807,7 @@ export default function Variant1({ speaker }) {
 									{speaker.tags?.map((tag, idx) => (
 										<span
 											key={idx}
-											className="rounded-full border border-purple-700 bg-purple-800/50 px-4 py-2 text-base text-purple-200 transition-colors hover:bg-purple-700"
+											className="rounded-full border border-purple-700 bg-dark-bg-secondary/80 px-4 py-2 text-base text-purple-200 transition-colors hover:bg-purple-700"
 										>
 											{tag}
 										</span>
@@ -820,7 +820,7 @@ export default function Variant1({ speaker }) {
 						<div className="lg:col-span-4">
 							<div className="sticky top-24">
 								{/* Main CTA Card */}
-								<div className="mb-6 rounded-xl border border-purple-700 bg-purple-900/50 p-8">
+								<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-secondary p-8">
 									{/* Header */}
 									<div className="mb-6 flex items-center gap-1">
 										<img
@@ -996,7 +996,7 @@ export default function Variant1({ speaker }) {
 							{currentPageSpeakers.map((speakerItem, index) => (
 								<div
 									key={`${activeSimilarSpeaker}-${index}`}
-									className="overflow-hidden rounded-xl border border-purple-700 bg-purple-900/50 transition-colors hover:bg-purple-800/50"
+									className="overflow-hidden rounded-xl border border-purple-700 bg-dark-bg-primary transition-colors hover:bg-dark-bg-primary/80"
 								>
 									<div className="relative p-4">
 										{/* Plus button - left side */}

@@ -7,7 +7,7 @@ export default function VariantSwitcher({ currentVariant, speakerId }) {
 	];
 
 	return (
-		<div className="fixed top-20 right-4 z-40 bg-dark-bg-secondary/95 backdrop-blur-sm rounded-2xl p-3 shadow-2xl border border-gray-800">
+		<div className="fixed top-1/2 right-4 z-40 bg-dark-bg-secondary/95 backdrop-blur-sm rounded-2xl p-3 shadow-2xl border border-gray-800 -translate-y-1/2">
 			<div className="text-xs text-gray-400 mb-2 text-center font-medium">
 				Design Variant
 			</div>
