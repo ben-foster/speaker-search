@@ -412,7 +412,7 @@ export default function Variant1({ speaker }) {
 													key={idx}
 													className="flex items-start gap-3 text-base"
 												>
-													<span className="text-2xl">
+													<span className="text-base">
 														{highlight.icon}
 													</span>
 													<span className="leading-relaxed">
@@ -720,13 +720,13 @@ export default function Variant1({ speaker }) {
 										(coverage, idx) => (
 											<div
 												key={idx}
-												className="flex items-start gap-4 rounded-lg bg-dark-bg-primary/50 p-4 transition-colors hover:bg-dark-bg-secondary/80"
+												className="flex items-start gap-4"
 											>
-												<div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded bg-purple-600 text-sm font-bold text-white">
+												<div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded">
 													<img
 														src={coverage.logo}
 														alt={`${coverage.outlet} favicon`}
-														className="h-12 w-12 object-contain"
+														className="h-14 w-14 object-contain"
 														onError={(e) => {
 															e.target.style.display =
 																'none';
@@ -768,7 +768,7 @@ export default function Variant1({ speaker }) {
 									{speaker.books?.map((book, idx) => (
 										<div
 											key={idx}
-											className="flex gap-6 rounded-lg bg-dark-bg-primary/50 p-6"
+											className="flex gap-6"
 										>
 											<img
 												src={book.image}

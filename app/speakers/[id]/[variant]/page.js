@@ -139,28 +139,28 @@ Throughout his 20-year NFL career, Rice's dedication to preparation and work eth
 				title: 'Jerry Rice Reflects on Super Bowl XXIII',
 				description:
 					'Sharing memories from his iconic championship performance',
-				logo: '/jerry-rice/nbc-icon.svg.png',
+				logo: '/jerry-rice/nbc-icon.png',
 			},
 			{
 				outlet: 'Sports Illustrated',
 				title: 'What Jerry Rice Is Really Like',
 				description:
 					"A profile capturing Rice's legendary drive and character",
-				logo: '/jerry-rice/sports-illustrated-icon.png',
+				logo: '/jerry-rice/si-icon.png',
 			},
 			{
 				outlet: 'Sports Illustrated',
 				title: 'Jerry Rice on HBCUs: "We Have Always Proven Ourselves"',
 				description:
 					'Discussing the impact and value of historically Black colleges',
-				logo: '/jerry-rice/sports-illustrated-icon.png',
+				logo: '/jerry-rice/si-icon.png',
 			},
 			{
 				outlet: 'NBC Bay Area',
 				title: 'Learning From the Great Dwight Clark',
 				description:
 					'A heartfelt interview about mentorship and legacy',
-				logo: '/jerry-rice/nbc-icon.svg.png',
+				logo: '/jerry-rice/nbc-bay-area-icon.png',
 			},
 		],
 
