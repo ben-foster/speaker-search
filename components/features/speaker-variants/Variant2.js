@@ -11,7 +11,7 @@ const jerryRiceImages = [
 	'/jerry-rice/jerry-rice-secondary-3.png',
 	'/jerry-rice/jerry-rice-secondary-4.webp',
 	'/jerry-rice/jerry-rice-secondary-5.jpg',
-	'/jerry-rice/jerry-rice-secondary-6.jpeg'
+	'/jerry-rice/jerry-rice-secondary-6.jpeg',
 ];
 
 const getJerryRiceImage = (index) => {
@@ -292,48 +292,12 @@ export default function Variant2({ speaker }) {
 									)}
 
 									{/* Badges */}
-									<div className="mb-6 flex flex-wrap gap-3">
-										<div className="flex items-center gap-2 rounded-full border border-yellow-500/30 bg-yellow-500/20 px-3 py-1">
-											<svg
-												className="h-4 w-4 text-yellow-400"
-												fill="currentColor"
-												viewBox="0 0 20 20"
-											>
-												<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-											</svg>
-											<span className="text-sm font-medium text-yellow-200">
-												highly-reviewed
-											</span>
-										</div>
-										<div className="flex items-center gap-2 rounded-full border border-red-500/30 bg-red-500/20 px-3 py-1">
-											<svg
-												className="h-4 w-4 text-red-400"
-												fill="currentColor"
-												viewBox="0 0 20 20"
-											>
-												<path
-													fillRule="evenodd"
-													d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
-													clipRule="evenodd"
-												/>
-											</svg>
-											<span className="text-sm font-medium text-red-200">
-												trending
-											</span>
-										</div>
-										<div className="flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/20 px-3 py-1">
-											<svg
-												className="h-4 w-4 text-blue-400"
-												fill="currentColor"
-												viewBox="0 0 20 20"
-											>
-												<path d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4z" />
-												<path d="M5.5 9.643a.75.75 0 00-1.5 0V10c0 3.06 2.29 5.585 5.25 5.954V17.5h-1.5a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-1.5v-1.546A6.001 6.001 0 0016 10v-.357a.75.75 0 00-1.5 0V10a4.5 4.5 0 01-9 0v-.357z" />
-											</svg>
-											<span className="text-sm font-medium text-blue-200">
-												available
-											</span>
-										</div>
+									<div className="mb-6">
+										<img
+											src="/jerry-rice/Badging demo.png"
+											alt="Speaker badges"
+											className="-ml-3 h-auto max-h-12"
+										/>
 									</div>
 								</div>
 							</div>
@@ -351,8 +315,8 @@ export default function Variant2({ speaker }) {
 											}
 											className={`w-24 rounded-full py-2 text-sm font-medium transition-colors ${
 												!showBioFull
-													? 'bg-dark-bg-primary border border-white text-white'
-													: 'bg-dark-bg-primary border border-gray-600 text-gray-400 hover:border-gray-400 hover:text-gray-300'
+													? 'border border-white bg-dark-bg-primary text-white'
+													: 'border border-gray-600 bg-dark-bg-primary text-gray-400 hover:border-gray-400 hover:text-gray-300'
 											}`}
 										>
 											highlights
@@ -361,8 +325,8 @@ export default function Variant2({ speaker }) {
 											onClick={() => setShowBioFull(true)}
 											className={`w-24 rounded-full py-2 text-sm font-medium transition-colors ${
 												showBioFull
-													? 'bg-dark-bg-primary border border-white text-white'
-													: 'bg-dark-bg-primary border border-gray-600 text-gray-400 hover:border-gray-400 hover:text-gray-300'
+													? 'border border-white bg-dark-bg-primary text-white'
+													: 'border border-gray-600 bg-dark-bg-primary text-gray-400 hover:border-gray-400 hover:text-gray-300'
 											}`}
 										>
 											full bio
@@ -418,9 +382,16 @@ export default function Variant2({ speaker }) {
 												)
 											}
 											disabled={activeReview === 0}
-											className="flex h-8 w-8 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-lg text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
+											className="flex h-8 w-8 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-lg leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
 										>
-											<span style={{transform: 'translateY(-1px)'}}>‹</span>
+											<span
+												style={{
+													transform:
+														'translateY(-1px)',
+												}}
+											>
+												‹
+											</span>
 										</button>
 										<span className="self-center text-base font-medium text-purple-300">
 											{activeReview + 1}/
@@ -442,9 +413,16 @@ export default function Variant2({ speaker }) {
 													1) -
 													1
 											}
-											className="flex h-8 w-8 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-lg text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
+											className="flex h-8 w-8 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-lg leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
 										>
-											<span style={{transform: 'translateY(-1px)'}}>›</span>
+											<span
+												style={{
+													transform:
+														'translateY(-1px)',
+												}}
+											>
+												›
+											</span>
 										</button>
 									</div>
 								</div>
@@ -510,9 +488,16 @@ export default function Variant2({ speaker }) {
 												)
 											}
 											disabled={activeTopic === 0}
-											className="flex h-8 w-8 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-lg text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
+											className="flex h-8 w-8 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-lg leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
 										>
-											<span style={{transform: 'translateY(-1px)'}}>‹</span>
+											<span
+												style={{
+													transform:
+														'translateY(-1px)',
+												}}
+											>
+												‹
+											</span>
 										</button>
 										<span className="self-center text-base font-medium text-purple-300">
 											{activeTopic + 1}/
@@ -534,9 +519,16 @@ export default function Variant2({ speaker }) {
 													1) -
 													1
 											}
-											className="flex h-8 w-8 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-lg text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
+											className="flex h-8 w-8 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-lg leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
 										>
-											<span style={{transform: 'translateY(-1px)'}}>›</span>
+											<span
+												style={{
+													transform:
+														'translateY(-1px)',
+												}}
+											>
+												›
+											</span>
 										</button>
 									</div>
 								</div>
@@ -611,9 +603,16 @@ export default function Variant2({ speaker }) {
 												)
 											}
 											disabled={activeVideo === 0}
-											className="flex h-8 w-8 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-lg text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
+											className="flex h-8 w-8 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-lg leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
 										>
-											<span style={{transform: 'translateY(-1px)'}}>‹</span>
+											<span
+												style={{
+													transform:
+														'translateY(-1px)',
+												}}
+											>
+												‹
+											</span>
 										</button>
 										<span className="self-center text-base font-medium text-purple-300">
 											{activeVideo + 1}/{totalVideos}
@@ -621,13 +620,25 @@ export default function Variant2({ speaker }) {
 										<button
 											onClick={() =>
 												setActiveVideo(
-													Math.min(totalVideos - 1, activeVideo + 1)
+													Math.min(
+														totalVideos - 1,
+														activeVideo + 1
+													)
 												)
 											}
-											disabled={activeVideo === totalVideos - 1}
-											className="flex h-8 w-8 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-lg text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
+											disabled={
+												activeVideo === totalVideos - 1
+											}
+											className="flex h-8 w-8 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-lg leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
 										>
-											<span style={{transform: 'translateY(-1px)'}}>›</span>
+											<span
+												style={{
+													transform:
+														'translateY(-1px)',
+												}}
+											>
+												›
+											</span>
 										</button>
 									</div>
 								</div>
@@ -698,10 +709,7 @@ export default function Variant2({ speaker }) {
 								</h3>
 								<div className="space-y-6">
 									{speaker.books?.map((book, idx) => (
-										<div
-											key={idx}
-											className="flex gap-6"
-										>
+										<div key={idx} className="flex gap-6">
 											<img
 												src={book.image}
 												alt={book.title}
@@ -848,10 +856,14 @@ export default function Variant2({ speaker }) {
 												<span className="font-semibold">
 													Estimate: {speaker.feeRange}
 												</span>
-												<div 
+												<div
 													className="flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full border border-gray-400"
-													onMouseEnter={() => setShowPricePopup(true)}
-													onMouseLeave={() => setShowPricePopup(false)}
+													onMouseEnter={() =>
+														setShowPricePopup(true)
+													}
+													onMouseLeave={() =>
+														setShowPricePopup(false)
+													}
 												>
 													<span className="text-xs text-gray-400">
 														?
@@ -862,7 +874,7 @@ export default function Variant2({ speaker }) {
 
 										{/* Price Popup */}
 										{showPricePopup && (
-											<div className="absolute left-0 bottom-full z-20 mb-2 w-72 rounded-lg border border-purple-600 bg-purple-800 p-6 shadow-xl">
+											<div className="absolute bottom-full left-0 z-20 mb-2 w-72 rounded-lg border border-purple-600 bg-purple-800 p-6 shadow-xl">
 												<div className="text-sm leading-relaxed text-white">
 													<p className="mb-3">
 														Fees often vary based on
@@ -906,7 +918,7 @@ export default function Variant2({ speaker }) {
 
 									{/* Save/Share buttons */}
 									<div className="flex justify-center gap-4">
-										<button className="flex items-center gap-2 rounded-full bg-dark-bg-primary border border-gray-500 px-6 py-2 text-base text-gray-400 hover:border-white hover:text-white">
+										<button className="flex items-center gap-2 rounded-full border border-gray-500 bg-dark-bg-primary px-6 py-2 text-base text-gray-400 hover:border-white hover:text-white">
 											<svg
 												className="h-5 w-5"
 												fill="none"
@@ -922,7 +934,7 @@ export default function Variant2({ speaker }) {
 											</svg>
 											save
 										</button>
-										<button className="flex items-center gap-2 rounded-full bg-dark-bg-primary border border-gray-500 px-6 py-2 text-base text-gray-400 hover:border-white hover:text-white">
+										<button className="flex items-center gap-2 rounded-full border border-gray-500 bg-dark-bg-primary px-6 py-2 text-base text-gray-400 hover:border-white hover:text-white">
 											<ShareIcon className="h-5 w-5" />
 											share
 										</button>
@@ -956,7 +968,7 @@ export default function Variant2({ speaker }) {
 										)
 									}
 									disabled={currentPage === 1}
-									className="flex h-8 w-8 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-lg text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
+									className="flex h-8 w-8 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-lg leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
 								>
 									‹
 								</button>
@@ -967,7 +979,7 @@ export default function Variant2({ speaker }) {
 										)
 									}
 									disabled={currentPage === totalPages}
-									className="flex h-8 w-8 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-lg text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
+									className="flex h-8 w-8 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-lg leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
 								>
 									›
 								</button>
@@ -1074,7 +1086,7 @@ export default function Variant2({ speaker }) {
 										)
 									}
 									disabled={currentPage === 1}
-									className="ml-2 flex h-6 w-6 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-sm text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
+									className="ml-2 flex h-6 w-6 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-sm leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
 								>
 									‹
 								</button>
@@ -1085,7 +1097,7 @@ export default function Variant2({ speaker }) {
 										)
 									}
 									disabled={currentPage === totalPages}
-									className="flex h-6 w-6 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-sm text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
+									className="flex h-6 w-6 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-sm leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
 								>
 									›
 								</button>
