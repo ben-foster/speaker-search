@@ -24,8 +24,12 @@ export default function Variant2({ speaker }) {
 	const [activeReview, setActiveReview] = useState(0);
 	const [activeTopic, setActiveTopic] = useState(0);
 	const [activeSimilarSpeaker, setActiveSimilarSpeaker] = useState(0);
+	const [activeVideo, setActiveVideo] = useState(0);
 	const [expandedFAQ, setExpandedFAQ] = useState(null);
 	const [favoriteStates, setFavoriteStates] = useState({});
+
+	// Video pagination
+	const totalVideos = 2;
 
 	// Mock similar speakers with realistic images - 30 speakers total for 3 pages
 	const allSimilarSpeakers = [
@@ -261,7 +265,7 @@ export default function Variant2({ speaker }) {
 									</p>
 
 									{/* Profile Update Info */}
-									<div className="mb-4 flex items-center gap-2 text-base text-purple-500">
+									<div className="mb-4 flex items-center gap-2 text-base text-white">
 										<svg
 											className="h-5 w-5 text-purple-300"
 											fill="currentColor"
@@ -279,7 +283,7 @@ export default function Variant2({ speaker }) {
 
 									{/* Representation */}
 									{speaker.representation && (
-										<div className="mb-4 text-base text-purple-300">
+										<div className="mb-4 text-base text-white">
 											<span className="font-medium">
 												Representation:
 											</span>{' '}
@@ -335,7 +339,7 @@ export default function Variant2({ speaker }) {
 							</div>
 
 							{/* About Section */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-secondary p-8">
 								<div className="mb-6 flex items-center justify-between">
 									<h2 className="text-3xl font-semibold text-white">
 										About {speaker.name}
@@ -347,8 +351,8 @@ export default function Variant2({ speaker }) {
 											}
 											className={`w-24 rounded-full py-2 text-sm font-medium transition-colors ${
 												!showBioFull
-													? 'bg-purple-600 text-white'
-													: 'bg-dark-bg-primary border border-purple-600 text-purple-300 hover:bg-purple-700 hover:text-white'
+													? 'bg-dark-bg-primary border border-white text-white'
+													: 'bg-dark-bg-primary border border-gray-600 text-gray-400 hover:border-gray-400 hover:text-gray-300'
 											}`}
 										>
 											highlights
@@ -357,8 +361,8 @@ export default function Variant2({ speaker }) {
 											onClick={() => setShowBioFull(true)}
 											className={`w-24 rounded-full py-2 text-sm font-medium transition-colors ${
 												showBioFull
-													? 'bg-purple-600 text-white'
-													: 'bg-dark-bg-primary border border-purple-600 text-purple-300 hover:bg-purple-700 hover:text-white'
+													? 'bg-dark-bg-primary border border-white text-white'
+													: 'bg-dark-bg-primary border border-gray-600 text-gray-400 hover:border-gray-400 hover:text-gray-300'
 											}`}
 										>
 											full bio
@@ -373,7 +377,7 @@ export default function Variant2({ speaker }) {
 											.map((paragraph, idx) => (
 												<p
 													key={idx}
-													className="text-lg leading-relaxed"
+													className="text-base leading-relaxed"
 												>
 													{paragraph}
 												</p>
@@ -385,7 +389,7 @@ export default function Variant2({ speaker }) {
 											(highlight, idx) => (
 												<div
 													key={idx}
-													className="flex items-start gap-3 text-lg"
+													className="flex items-start gap-3 text-base"
 												>
 													<span className="text-2xl">
 														{highlight.icon}
@@ -401,7 +405,7 @@ export default function Variant2({ speaker }) {
 							</div>
 
 							{/* Featured Testimonials */}
-							<div className="mb-6 rounded-xl border border-yellow-400 bg-dark-bg-primary p-8">
+							<div className="mb-6 rounded-xl border border-yellow-400 bg-dark-bg-secondary p-8">
 								<div className="mb-4 flex justify-end">
 									<div className="flex gap-3">
 										<button
@@ -414,9 +418,9 @@ export default function Variant2({ speaker }) {
 												)
 											}
 											disabled={activeReview === 0}
-											className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-700 text-lg text-white hover:bg-purple-600 disabled:opacity-50"
+											className="flex h-8 w-8 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-lg text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
 										>
-											‹
+											<span style={{transform: 'translateY(-1px)'}}>‹</span>
 										</button>
 										<span className="self-center text-base font-medium text-purple-300">
 											{activeReview + 1}/
@@ -438,9 +442,9 @@ export default function Variant2({ speaker }) {
 													1) -
 													1
 											}
-											className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-700 text-lg text-white hover:bg-purple-600 disabled:opacity-50"
+											className="flex h-8 w-8 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-lg text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
 										>
-											›
+											<span style={{transform: 'translateY(-1px)'}}>›</span>
 										</button>
 									</div>
 								</div>
@@ -477,7 +481,7 @@ export default function Variant2({ speaker }) {
 									</p>
 
 									{/* Author Info Third */}
-									<div className="text-lg font-medium text-purple-200">
+									<div className="text-base font-medium text-purple-200">
 										–{' '}
 										{
 											speaker.testimonials?.[activeReview]
@@ -493,7 +497,7 @@ export default function Variant2({ speaker }) {
 							</div>
 
 							{/* Speech Topics */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-secondary p-8">
 								<div className="mb-4 flex items-center justify-between">
 									<h3 className="text-3xl font-semibold text-white">
 										Speech topics
@@ -506,9 +510,9 @@ export default function Variant2({ speaker }) {
 												)
 											}
 											disabled={activeTopic === 0}
-											className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-700 text-lg text-white hover:bg-purple-600 disabled:opacity-50"
+											className="flex h-8 w-8 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-lg text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
 										>
-											‹
+											<span style={{transform: 'translateY(-1px)'}}>‹</span>
 										</button>
 										<span className="self-center text-base font-medium text-purple-300">
 											{activeTopic + 1}/
@@ -530,9 +534,9 @@ export default function Variant2({ speaker }) {
 													1) -
 													1
 											}
-											className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-700 text-lg text-white hover:bg-purple-600 disabled:opacity-50"
+											className="flex h-8 w-8 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-lg text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
 										>
-											›
+											<span style={{transform: 'translateY(-1px)'}}>›</span>
 										</button>
 									</div>
 								</div>
@@ -546,7 +550,7 @@ export default function Variant2({ speaker }) {
 										}
 										&rdquo;
 									</h4>
-									<div className="text-lg">
+									<div className="text-base">
 										<p className="mb-3 text-purple-200">
 											Key Takeaways:
 										</p>
@@ -594,20 +598,36 @@ export default function Variant2({ speaker }) {
 							</div>
 
 							{/* Speaking Videos */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-secondary p-8">
 								<div className="mb-6 flex items-center justify-between">
 									<h3 className="text-3xl font-semibold text-white">
 										Speaking videos
 									</h3>
 									<div className="flex gap-3">
-										<button className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-700 text-lg text-white hover:bg-purple-600">
-											‹
+										<button
+											onClick={() =>
+												setActiveVideo(
+													Math.max(0, activeVideo - 1)
+												)
+											}
+											disabled={activeVideo === 0}
+											className="flex h-8 w-8 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-lg text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
+										>
+											<span style={{transform: 'translateY(-1px)'}}>‹</span>
 										</button>
 										<span className="self-center text-base font-medium text-purple-300">
-											1/2
+											{activeVideo + 1}/{totalVideos}
 										</span>
-										<button className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-700 text-lg text-white hover:bg-purple-600">
-											›
+										<button
+											onClick={() =>
+												setActiveVideo(
+													Math.min(totalVideos - 1, activeVideo + 1)
+												)
+											}
+											disabled={activeVideo === totalVideos - 1}
+											className="flex h-8 w-8 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-lg text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
+										>
+											<span style={{transform: 'translateY(-1px)'}}>›</span>
 										</button>
 									</div>
 								</div>
@@ -623,7 +643,7 @@ export default function Variant2({ speaker }) {
 							</div>
 
 							{/* Media Coverage */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-secondary p-8">
 								<h3 className="mb-6 text-3xl font-semibold text-white">
 									Media coverage
 								</h3>
@@ -655,10 +675,10 @@ export default function Variant2({ speaker }) {
 													/>
 												</div>
 												<div className="flex-grow">
-													<h4 className="text-lg font-medium text-white">
+													<h4 className="text-base font-medium text-white">
 														{coverage.outlet}
 													</h4>
-													<p className="text-lg font-medium text-purple-100">
+													<p className="text-base font-medium text-purple-100">
 														{coverage.title}
 													</p>
 													<p className="text-base text-purple-300">
@@ -672,7 +692,7 @@ export default function Variant2({ speaker }) {
 							</div>
 
 							{/* Books */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-secondary p-8">
 								<h3 className="mb-6 text-3xl font-semibold text-white">
 									Books by {speaker.name}
 								</h3>
@@ -688,7 +708,7 @@ export default function Variant2({ speaker }) {
 												className="h-40 w-28 rounded object-cover"
 											/>
 											<div className="flex-grow">
-												<h4 className="mb-2 text-lg font-semibold text-white">
+												<h4 className="mb-2 text-base font-semibold text-white">
 													&ldquo;{book.title}&rdquo; (
 													{book.year})
 												</h4>
@@ -702,7 +722,7 @@ export default function Variant2({ speaker }) {
 							</div>
 
 							{/* FAQs */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-secondary p-8">
 								<h3 className="mb-6 text-3xl font-semibold text-white">
 									FAQs on booking {speaker.name}
 								</h3>
@@ -716,7 +736,7 @@ export default function Variant2({ speaker }) {
 												onClick={() => toggleFAQ(idx)}
 												className="flex w-full items-center justify-between text-left text-purple-100 transition-colors hover:text-white"
 											>
-												<span className="text-lg font-medium">
+												<span className="text-base font-medium">
 													{faq.question}
 												</span>
 												<svg
@@ -744,7 +764,7 @@ export default function Variant2({ speaker }) {
 							</div>
 
 							{/* Featured Lists */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-secondary p-8">
 								<h3 className="mb-6 text-3xl font-semibold text-white">
 									{speaker.name} is featured on these lists
 								</h3>
@@ -752,7 +772,7 @@ export default function Variant2({ speaker }) {
 									{speaker.featuredLists?.map((list, idx) => (
 										<div
 											key={idx}
-											className="flex items-center gap-3 text-lg text-purple-200"
+											className="flex items-center gap-3 text-base text-purple-200"
 										>
 											<span className="h-2 w-2 rounded-full bg-purple-400"></span>
 											{list}
@@ -805,7 +825,11 @@ export default function Variant2({ speaker }) {
 									{/* Travels from */}
 									<div className="mb-4 flex items-center gap-3 text-base text-purple-200">
 										<div className="flex h-6 w-6 flex-shrink-0 items-center justify-center">
-											<span className="text-lg">📍</span>
+											<img
+												src="/jerry-rice/Pin drop.png"
+												alt="Pin drop"
+												className="h-6 w-6 object-contain"
+											/>
 										</div>
 										<span className="flex-1">
 											Travels from {speaker.location}
@@ -880,13 +904,13 @@ export default function Variant2({ speaker }) {
 									</p>
 
 									{/* Button */}
-									<button className="mb-8 w-full rounded-full border-2 border-purple-500 bg-transparent py-4 text-lg font-semibold text-white transition-colors hover:bg-purple-500">
+									<button className="mb-8 w-full rounded-full border-2 border-purple-500 bg-purple-500 py-4 text-lg font-semibold text-white transition-all hover:font-bold">
 										Let&apos;s get started
 									</button>
 
 									{/* Save/Share buttons */}
 									<div className="flex justify-center gap-4">
-										<button className="flex items-center gap-2 rounded-full border border-gray-500 px-6 py-2 text-base text-gray-400 hover:border-white hover:text-white">
+										<button className="flex items-center gap-2 rounded-full bg-dark-bg-primary border border-gray-500 px-6 py-2 text-base text-gray-400 hover:border-white hover:text-white">
 											<svg
 												className="h-5 w-5"
 												fill="none"
@@ -902,7 +926,7 @@ export default function Variant2({ speaker }) {
 											</svg>
 											save
 										</button>
-										<button className="flex items-center gap-2 rounded-full border border-gray-500 px-6 py-2 text-base text-gray-400 hover:border-white hover:text-white">
+										<button className="flex items-center gap-2 rounded-full bg-dark-bg-primary border border-gray-500 px-6 py-2 text-base text-gray-400 hover:border-white hover:text-white">
 											<ShareIcon className="h-5 w-5" />
 											share
 										</button>
@@ -936,7 +960,7 @@ export default function Variant2({ speaker }) {
 										)
 									}
 									disabled={currentPage === 1}
-									className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-700 text-lg text-white hover:bg-purple-600 disabled:opacity-50"
+									className="flex h-8 w-8 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-lg text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
 								>
 									‹
 								</button>
@@ -947,7 +971,7 @@ export default function Variant2({ speaker }) {
 										)
 									}
 									disabled={currentPage === totalPages}
-									className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-700 text-lg text-white hover:bg-purple-600 disabled:opacity-50"
+									className="flex h-8 w-8 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-lg text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
 								>
 									›
 								</button>
@@ -959,7 +983,7 @@ export default function Variant2({ speaker }) {
 							{currentPageSpeakers.map((speakerItem, index) => (
 								<div
 									key={`${activeSimilarSpeaker}-${index}`}
-									className="overflow-hidden rounded-xl border border-purple-700 bg-dark-bg-primary transition-colors hover:bg-dark-bg-primary/80"
+									className="overflow-hidden rounded-xl border border-purple-700 bg-dark-bg-secondary transition-colors hover:bg-dark-bg-secondary/80"
 								>
 									<div className="relative p-4">
 										{/* Plus button - left side */}
@@ -1054,7 +1078,7 @@ export default function Variant2({ speaker }) {
 										)
 									}
 									disabled={currentPage === 1}
-									className="ml-2 flex h-6 w-6 items-center justify-center rounded-full bg-purple-700 text-sm text-white hover:bg-purple-600 disabled:opacity-50"
+									className="ml-2 flex h-6 w-6 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-sm text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
 								>
 									‹
 								</button>
@@ -1065,7 +1089,7 @@ export default function Variant2({ speaker }) {
 										)
 									}
 									disabled={currentPage === totalPages}
-									className="flex h-6 w-6 items-center justify-center rounded-full bg-purple-700 text-sm text-white hover:bg-purple-600 disabled:opacity-50"
+									className="flex h-6 w-6 items-center justify-center rounded-full bg-dark-bg-primary border border-white text-sm text-white hover:border-gray-400 hover:text-gray-300 disabled:opacity-50 disabled:border-gray-600 disabled:text-gray-500 leading-none"
 								>
 									›
 								</button>

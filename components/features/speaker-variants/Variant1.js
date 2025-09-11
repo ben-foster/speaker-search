@@ -11,7 +11,7 @@ const jerryRiceImages = [
 	'/jerry-rice/jerry-rice-secondary-3.png',
 	'/jerry-rice/jerry-rice-secondary-4.webp',
 	'/jerry-rice/jerry-rice-secondary-5.jpg',
-	'/jerry-rice/jerry-rice-secondary-6.jpeg'
+	'/jerry-rice/jerry-rice-secondary-6.jpeg',
 ];
 
 const getJerryRiceImage = (index) => {
@@ -24,8 +24,12 @@ export default function Variant1({ speaker }) {
 	const [activeReview, setActiveReview] = useState(0);
 	const [activeTopic, setActiveTopic] = useState(0);
 	const [activeSimilarSpeaker, setActiveSimilarSpeaker] = useState(0);
+	const [activeVideo, setActiveVideo] = useState(0);
 	const [expandedFAQ, setExpandedFAQ] = useState(null);
 	const [favoriteStates, setFavoriteStates] = useState({});
+
+	// Video pagination
+	const totalVideos = 2;
 
 	// Mock similar speakers with realistic images - 30 speakers total for 3 pages
 	const allSimilarSpeakers = [
@@ -237,7 +241,7 @@ export default function Variant1({ speaker }) {
 			<div className="pb-0 pt-20">
 				{/* Media Gallery - CSS Grid Layout */}
 				<div className="mb-12 w-full px-6">
-					<div className="grid grid-cols-5 grid-rows-2 gap-4 h-[36rem]">
+					<div className="grid h-[36rem] grid-cols-5 grid-rows-2 gap-4">
 						{/* Large Featured Image - Spans 2 columns and 2 rows */}
 						<div className="group relative col-span-2 row-span-2 cursor-pointer overflow-hidden rounded-lg">
 							{speaker.mediaItems?.[0] && (
@@ -271,30 +275,14 @@ export default function Variant1({ speaker }) {
 											className="h-full w-full object-cover"
 										/>
 									)}
-									
+
 									{/* Badges Overlay */}
-									<div className="absolute bottom-4 left-4 flex items-center gap-3">
-										{/* Highly-reviewed badge */}
-										<div className="flex h-10 items-center gap-2 rounded-full bg-black/70 px-4 py-2 text-white backdrop-blur-sm border-2 border-purple-500">
-											<svg className="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
-												<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-											</svg>
-											<span className="text-sm font-medium">highly-reviewed</span>
-										</div>
-										
-										{/* Fire/trending badge */}
-										<div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500/90 backdrop-blur-sm">
-											<svg className="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-												<path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.28 2.82-.2 4.25-.57 1.7-1.8 2.86-3.46 3.03-.05.01-.1.01-.14.01-.47 0-.92-.15-1.28-.45z"/>
-											</svg>
-										</div>
-										
-										{/* Video badge */}
-										<div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/90 backdrop-blur-sm">
-											<svg className="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-												<path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-											</svg>
-										</div>
+									<div className="absolute bottom-4 left-4">
+										<img
+											src="/jerry-rice/Badging demo.png"
+											alt="Speaker badges"
+											className="h-14 object-contain"
+										/>
 									</div>
 								</>
 							)}
@@ -345,7 +333,7 @@ export default function Variant1({ speaker }) {
 
 								{/* Profile Update Info and Representation - Same Line */}
 								<div className="mb-4 flex items-center gap-8 text-base">
-									<div className="flex items-center gap-2 text-purple-500">
+									<div className="flex items-center gap-2 text-white">
 										<svg
 											className="h-5 w-5 text-purple-300"
 											fill="currentColor"
@@ -361,7 +349,7 @@ export default function Variant1({ speaker }) {
 										{speaker.updatedBy}
 									</div>
 									{speaker.representation && (
-										<div className="text-purple-300">
+										<div className="text-white">
 											<span className="font-medium">
 												Representation:
 											</span>{' '}
@@ -372,7 +360,7 @@ export default function Variant1({ speaker }) {
 							</div>
 
 							{/* About Section */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-secondary p-8">
 								<div className="mb-6 flex items-center justify-between">
 									<h2 className="text-3xl font-semibold text-white">
 										About {speaker.name}
@@ -384,8 +372,8 @@ export default function Variant1({ speaker }) {
 											}
 											className={`w-24 rounded-full py-2 text-sm font-medium transition-colors ${
 												!showBioFull
-													? 'bg-purple-600 text-white'
-													: 'bg-dark-bg-primary border border-purple-600 text-purple-300 hover:bg-purple-700 hover:text-white'
+													? 'border border-white bg-dark-bg-primary text-white'
+													: 'border border-gray-600 bg-dark-bg-primary text-gray-400 hover:border-gray-400 hover:text-gray-300'
 											}`}
 										>
 											highlights
@@ -394,8 +382,8 @@ export default function Variant1({ speaker }) {
 											onClick={() => setShowBioFull(true)}
 											className={`w-24 rounded-full py-2 text-sm font-medium transition-colors ${
 												showBioFull
-													? 'bg-purple-600 text-white'
-													: 'bg-dark-bg-primary border border-purple-600 text-purple-300 hover:bg-purple-700 hover:text-white'
+													? 'border border-white bg-dark-bg-primary text-white'
+													: 'border border-gray-600 bg-dark-bg-primary text-gray-400 hover:border-gray-400 hover:text-gray-300'
 											}`}
 										>
 											full bio
@@ -410,7 +398,7 @@ export default function Variant1({ speaker }) {
 											.map((paragraph, idx) => (
 												<p
 													key={idx}
-													className="text-lg leading-relaxed"
+													className="text-base leading-relaxed"
 												>
 													{paragraph}
 												</p>
@@ -422,7 +410,7 @@ export default function Variant1({ speaker }) {
 											(highlight, idx) => (
 												<div
 													key={idx}
-													className="flex items-start gap-3 text-lg"
+													className="flex items-start gap-3 text-base"
 												>
 													<span className="text-2xl">
 														{highlight.icon}
@@ -438,7 +426,7 @@ export default function Variant1({ speaker }) {
 							</div>
 
 							{/* Featured Testimonials */}
-							<div className="mb-6 rounded-xl border border-yellow-400 bg-dark-bg-primary p-8">
+							<div className="mb-6 rounded-xl border border-yellow-400 bg-dark-bg-secondary p-8">
 								<div className="mb-4 flex justify-end">
 									<div className="flex gap-3">
 										<button
@@ -451,9 +439,16 @@ export default function Variant1({ speaker }) {
 												)
 											}
 											disabled={activeReview === 0}
-											className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-700 text-lg text-white hover:bg-purple-600 disabled:opacity-50"
+											className="flex h-8 w-8 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-lg leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
 										>
-											‹
+											<span
+												style={{
+													transform:
+														'translateY(-1px)',
+												}}
+											>
+												‹
+											</span>
 										</button>
 										<span className="self-center text-base font-medium text-purple-300">
 											{activeReview + 1}/
@@ -475,9 +470,16 @@ export default function Variant1({ speaker }) {
 													1) -
 													1
 											}
-											className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-700 text-lg text-white hover:bg-purple-600 disabled:opacity-50"
+											className="flex h-8 w-8 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-lg leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
 										>
-											›
+											<span
+												style={{
+													transform:
+														'translateY(-1px)',
+												}}
+											>
+												›
+											</span>
 										</button>
 									</div>
 								</div>
@@ -514,7 +516,7 @@ export default function Variant1({ speaker }) {
 									</p>
 
 									{/* Author Info Third */}
-									<div className="text-lg font-medium text-purple-200">
+									<div className="text-base font-medium text-purple-200">
 										–{' '}
 										{
 											speaker.testimonials?.[activeReview]
@@ -530,7 +532,7 @@ export default function Variant1({ speaker }) {
 							</div>
 
 							{/* Speech Topics */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-secondary p-8">
 								<div className="mb-4 flex items-center justify-between">
 									<h3 className="text-3xl font-semibold text-white">
 										Speech topics
@@ -543,9 +545,16 @@ export default function Variant1({ speaker }) {
 												)
 											}
 											disabled={activeTopic === 0}
-											className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-700 text-lg text-white hover:bg-purple-600 disabled:opacity-50"
+											className="flex h-8 w-8 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-lg leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
 										>
-											‹
+											<span
+												style={{
+													transform:
+														'translateY(-1px)',
+												}}
+											>
+												‹
+											</span>
 										</button>
 										<span className="self-center text-base font-medium text-purple-300">
 											{activeTopic + 1}/
@@ -567,9 +576,16 @@ export default function Variant1({ speaker }) {
 													1) -
 													1
 											}
-											className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-700 text-lg text-white hover:bg-purple-600 disabled:opacity-50"
+											className="flex h-8 w-8 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-lg leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
 										>
-											›
+											<span
+												style={{
+													transform:
+														'translateY(-1px)',
+												}}
+											>
+												›
+											</span>
 										</button>
 									</div>
 								</div>
@@ -583,7 +599,7 @@ export default function Variant1({ speaker }) {
 										}
 										&rdquo;
 									</h4>
-									<div className="text-lg">
+									<div className="text-base">
 										<p className="mb-3 text-purple-200">
 											Key Takeaways:
 										</p>
@@ -631,20 +647,55 @@ export default function Variant1({ speaker }) {
 							</div>
 
 							{/* Speaking Videos */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-secondary p-8">
 								<div className="mb-6 flex items-center justify-between">
 									<h3 className="text-3xl font-semibold text-white">
 										Speaking videos
 									</h3>
 									<div className="flex gap-3">
-										<button className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-700 text-lg text-white hover:bg-purple-600">
-											‹
+										<button
+											onClick={() =>
+												setActiveVideo(
+													Math.max(0, activeVideo - 1)
+												)
+											}
+											disabled={activeVideo === 0}
+											className="flex h-8 w-8 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-lg leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
+										>
+											<span
+												style={{
+													transform:
+														'translateY(-1px)',
+												}}
+											>
+												‹
+											</span>
 										</button>
 										<span className="self-center text-base font-medium text-purple-300">
-											1/2
+											{activeVideo + 1}/{totalVideos}
 										</span>
-										<button className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-700 text-lg text-white hover:bg-purple-600">
-											›
+										<button
+											onClick={() =>
+												setActiveVideo(
+													Math.min(
+														totalVideos - 1,
+														activeVideo + 1
+													)
+												)
+											}
+											disabled={
+												activeVideo === totalVideos - 1
+											}
+											className="flex h-8 w-8 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-lg leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
+										>
+											<span
+												style={{
+													transform:
+														'translateY(-1px)',
+												}}
+											>
+												›
+											</span>
 										</button>
 									</div>
 								</div>
@@ -660,7 +711,7 @@ export default function Variant1({ speaker }) {
 							</div>
 
 							{/* Media Coverage */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-secondary p-8">
 								<h3 className="mb-6 text-3xl font-semibold text-white">
 									Media coverage
 								</h3>
@@ -692,10 +743,10 @@ export default function Variant1({ speaker }) {
 													/>
 												</div>
 												<div className="flex-grow">
-													<h4 className="text-lg font-medium text-white">
+													<h4 className="text-base font-medium text-white">
 														{coverage.outlet}
 													</h4>
-													<p className="text-lg font-medium text-purple-100">
+													<p className="text-base font-medium text-purple-100">
 														{coverage.title}
 													</p>
 													<p className="text-base text-purple-300">
@@ -709,7 +760,7 @@ export default function Variant1({ speaker }) {
 							</div>
 
 							{/* Books */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-secondary p-8">
 								<h3 className="mb-6 text-3xl font-semibold text-white">
 									Books by {speaker.name}
 								</h3>
@@ -725,7 +776,7 @@ export default function Variant1({ speaker }) {
 												className="h-40 w-28 rounded object-cover"
 											/>
 											<div className="flex-grow">
-												<h4 className="mb-2 text-lg font-semibold text-white">
+												<h4 className="mb-2 text-base font-semibold text-white">
 													&ldquo;{book.title}&rdquo; (
 													{book.year})
 												</h4>
@@ -739,7 +790,7 @@ export default function Variant1({ speaker }) {
 							</div>
 
 							{/* FAQs */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-secondary p-8">
 								<h3 className="mb-6 text-3xl font-semibold text-white">
 									FAQs on booking {speaker.name}
 								</h3>
@@ -753,7 +804,7 @@ export default function Variant1({ speaker }) {
 												onClick={() => toggleFAQ(idx)}
 												className="flex w-full items-center justify-between text-left text-purple-100 transition-colors hover:text-white"
 											>
-												<span className="text-lg font-medium">
+												<span className="text-base font-medium">
 													{faq.question}
 												</span>
 												<svg
@@ -781,7 +832,7 @@ export default function Variant1({ speaker }) {
 							</div>
 
 							{/* Featured Lists */}
-							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-primary p-8">
+							<div className="mb-6 rounded-xl border border-purple-700 bg-dark-bg-secondary p-8">
 								<h3 className="mb-6 text-3xl font-semibold text-white">
 									{speaker.name} is featured on these lists
 								</h3>
@@ -789,7 +840,7 @@ export default function Variant1({ speaker }) {
 									{speaker.featuredLists?.map((list, idx) => (
 										<div
 											key={idx}
-											className="flex items-center gap-3 text-lg text-purple-200"
+											className="flex items-center gap-3 text-base text-purple-200"
 										>
 											<span className="h-2 w-2 rounded-full bg-purple-400"></span>
 											{list}
@@ -842,7 +893,11 @@ export default function Variant1({ speaker }) {
 									{/* Travels from */}
 									<div className="mb-4 flex items-center gap-3 text-base text-purple-200">
 										<div className="flex h-6 w-6 flex-shrink-0 items-center justify-center">
-											<span className="text-lg">📍</span>
+											<img
+												src="/jerry-rice/Pin drop.png"
+												alt="Pin drop"
+												className="h-6 w-6 object-contain"
+											/>
 										</div>
 										<span className="flex-1">
 											Travels from {speaker.location}
@@ -879,7 +934,7 @@ export default function Variant1({ speaker }) {
 
 										{/* Price Popup */}
 										{showPricePopup && (
-											<div className="absolute left-0 bottom-full z-20 mb-2 w-72 rounded-lg border border-purple-600 bg-purple-800 p-6 shadow-xl">
+											<div className="absolute bottom-full left-0 z-20 mb-2 w-72 rounded-lg border border-purple-600 bg-purple-800 p-6 shadow-xl">
 												<div className="text-sm leading-relaxed text-white">
 													<p className="mb-3">
 														Fees often vary based on
@@ -917,13 +972,13 @@ export default function Variant1({ speaker }) {
 									</p>
 
 									{/* Button */}
-									<button className="mb-8 w-full rounded-full border-2 border-purple-500 bg-transparent py-4 text-lg font-semibold text-white transition-colors hover:bg-purple-500">
+									<button className="mb-8 w-full rounded-full border-2 border-purple-500 bg-purple-500 py-4 text-lg font-semibold text-white transition-all hover:font-bold">
 										Let&apos;s get started
 									</button>
 
 									{/* Save/Share buttons */}
 									<div className="flex justify-center gap-4">
-										<button className="flex items-center gap-2 rounded-full border border-gray-500 px-6 py-2 text-base text-gray-400 hover:border-white hover:text-white">
+										<button className="flex items-center gap-2 rounded-full border border-gray-500 bg-dark-bg-primary px-6 py-2 text-base text-gray-400 hover:border-white hover:text-white">
 											<svg
 												className="h-5 w-5"
 												fill="none"
@@ -939,7 +994,7 @@ export default function Variant1({ speaker }) {
 											</svg>
 											save
 										</button>
-										<button className="flex items-center gap-2 rounded-full border border-gray-500 px-6 py-2 text-base text-gray-400 hover:border-white hover:text-white">
+										<button className="flex items-center gap-2 rounded-full border border-gray-500 bg-dark-bg-primary px-6 py-2 text-base text-gray-400 hover:border-white hover:text-white">
 											<ShareIcon className="h-5 w-5" />
 											share
 										</button>
@@ -973,7 +1028,7 @@ export default function Variant1({ speaker }) {
 										)
 									}
 									disabled={currentPage === 1}
-									className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-700 text-lg text-white hover:bg-purple-600 disabled:opacity-50"
+									className="flex h-8 w-8 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-lg leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
 								>
 									‹
 								</button>
@@ -984,7 +1039,7 @@ export default function Variant1({ speaker }) {
 										)
 									}
 									disabled={currentPage === totalPages}
-									className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-700 text-lg text-white hover:bg-purple-600 disabled:opacity-50"
+									className="flex h-8 w-8 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-lg leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
 								>
 									›
 								</button>
@@ -996,7 +1051,7 @@ export default function Variant1({ speaker }) {
 							{currentPageSpeakers.map((speakerItem, index) => (
 								<div
 									key={`${activeSimilarSpeaker}-${index}`}
-									className="overflow-hidden rounded-xl border border-purple-700 bg-dark-bg-primary transition-colors hover:bg-dark-bg-primary/80"
+									className="overflow-hidden rounded-xl border border-purple-700 bg-dark-bg-secondary transition-colors hover:bg-dark-bg-secondary/80"
 								>
 									<div className="relative p-4">
 										{/* Plus button - left side */}
@@ -1091,7 +1146,7 @@ export default function Variant1({ speaker }) {
 										)
 									}
 									disabled={currentPage === 1}
-									className="ml-2 flex h-6 w-6 items-center justify-center rounded-full bg-purple-700 text-sm text-white hover:bg-purple-600 disabled:opacity-50"
+									className="ml-2 flex h-6 w-6 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-sm leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
 								>
 									‹
 								</button>
@@ -1102,7 +1157,7 @@ export default function Variant1({ speaker }) {
 										)
 									}
 									disabled={currentPage === totalPages}
-									className="flex h-6 w-6 items-center justify-center rounded-full bg-purple-700 text-sm text-white hover:bg-purple-600 disabled:opacity-50"
+									className="flex h-6 w-6 items-center justify-center rounded-full border border-white bg-dark-bg-primary text-sm leading-none text-white hover:border-gray-400 hover:text-gray-300 disabled:border-gray-600 disabled:text-gray-500 disabled:opacity-50"
 								>
 									›
 								</button>
