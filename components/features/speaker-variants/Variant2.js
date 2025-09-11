@@ -260,7 +260,7 @@ export default function Variant2({ speaker }) {
 									<h1 className="mb-3 text-4xl font-bold text-white">
 										{speaker.name}
 									</h1>
-									<p className="mb-6 text-2xl text-purple-200">
+									<p className="mb-6 text-2xl text-white">
 										{speaker.title}
 									</p>
 
@@ -837,15 +837,7 @@ export default function Variant2({ speaker }) {
 									</div>
 
 									{/* Estimate */}
-									<div
-										className="relative mb-6"
-										onMouseEnter={() =>
-											setShowPricePopup(true)
-										}
-										onMouseLeave={() =>
-											setShowPricePopup(false)
-										}
-									>
+									<div className="relative mb-6">
 										<div className="flex items-center gap-3 text-base text-green-400">
 											<div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-green-400 text-black">
 												<span className="text-base font-bold">
@@ -856,7 +848,11 @@ export default function Variant2({ speaker }) {
 												<span className="font-semibold">
 													Estimate: {speaker.feeRange}
 												</span>
-												<div className="flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full border border-gray-400">
+												<div 
+													className="flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full border border-gray-400"
+													onMouseEnter={() => setShowPricePopup(true)}
+													onMouseLeave={() => setShowPricePopup(false)}
+												>
 													<span className="text-xs text-gray-400">
 														?
 													</span>
@@ -1097,7 +1093,7 @@ export default function Variant2({ speaker }) {
 						</div>
 
 						<div className="mt-8 text-center">
-							<p className="text-base italic text-purple-400">
+							<p className="text-base italic text-white text-opacity-60">
 								Speaker Search is a marketplace of speakers
 								designed for talent buyers. We do not represent
 								or manage speakers; instead, we provide event
