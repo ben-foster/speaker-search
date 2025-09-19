@@ -34,41 +34,41 @@ const getExtendedSpeakerData = (id) => {
 			{
 				type: 'image',
 				url: '/jerry-rice/jerry-rice-primary.jpg',
-				title: 'Jerry Rice - Hall of Fame Wide Receiver'
+				title: 'Jerry Rice - Hall of Fame Wide Receiver',
 			},
 			// Secondary images (top row)
 			{
 				type: 'image',
 				url: '/jerry-rice/jerry-rice-secondary-1.jpeg',
-				title: 'Jerry Rice - NFL Action Shot'
+				title: 'Jerry Rice - NFL Action Shot',
 			},
 			{
 				type: 'video',
 				thumbnail: '/jerry-rice/jerry-rice-secondary-2.webp',
 				url: 'https://www.youtube.com/embed/uzOYs4QI-QA?autoplay=1&mute=1&rel=0',
-				title: 'Jerry Rice - Speaking Highlights'
+				title: 'Jerry Rice - Speaking Highlights',
 			},
 			{
 				type: 'image',
 				url: '/jerry-rice/jerry-rice-secondary-3.png',
-				title: 'Jerry Rice - Conference Presentation'
+				title: 'Jerry Rice - Conference Presentation',
 			},
 			// Secondary images (bottom row)
 			{
 				type: 'image',
 				url: '/jerry-rice/jerry-rice-secondary-4.webp',
-				title: 'Jerry Rice - Leadership Talk'
+				title: 'Jerry Rice - Leadership Talk',
 			},
 			{
 				type: 'image',
 				url: '/jerry-rice/jerry-rice-secondary-5.jpg',
-				title: 'Jerry Rice - Corporate Event'
+				title: 'Jerry Rice - Corporate Event',
 			},
 			{
 				type: 'image',
 				url: '/jerry-rice/jerry-rice-secondary-6.jpeg',
-				title: 'Jerry Rice - Awards Ceremony'
-			}
+				title: 'Jerry Rice - Awards Ceremony',
+			},
 		],
 
 		// Main speaker image
@@ -221,10 +221,6 @@ Throughout his 20-year NFL career, Rice's dedication to preparation and work eth
 			{
 				question: 'Where does Jerry Rice travel from?',
 				answer: 'Jerry Rice is based in San Francisco, CA, but travels worldwide for speaking engagements.',
-			},
-			{
-				question: 'Who is the agent or representative for Jerry Rice?',
-				answer: 'Jerry Rice is represented by Creative Artists Agency (CAA). We facilitate connections through official channels.',
 			},
 		],
 

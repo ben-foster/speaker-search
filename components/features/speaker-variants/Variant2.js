@@ -281,23 +281,43 @@ export default function Variant2({ speaker }) {
 										{speaker.updatedBy}
 									</div>
 
-									{/* Representation */}
-									{speaker.representation && (
-										<div className="mb-4 text-base text-white">
-											<span className="font-medium">
-												Representation:
-											</span>{' '}
-											{speaker.representation}
+									{/* Interactive Badges */}
+									<div className="mb-6 flex gap-2">
+										{/* Highly Reviewed Badge */}
+										<div className="group flex h-12 w-12 items-center justify-center rounded-full border border-purple-700 bg-black/80 p-[0.68rem] transition-all duration-300 hover:w-auto">
+											<img
+												src="/jerry-rice/star icon.png"
+												alt="Highly Reviewed"
+												className="h-6 w-6 flex-shrink-0 object-contain"
+											/>
+											<span className="hidden whitespace-nowrap font-medium text-white group-hover:ml-2 group-hover:inline">
+												highly-reviewed
+											</span>
 										</div>
-									)}
 
-									{/* Badges */}
-									<div className="mb-6">
-										<img
-											src="/jerry-rice/Badging demo.png"
-											alt="Speaker badges"
-											className="-ml-3 h-auto max-h-12"
-										/>
+										{/* Trending Speaker Badge */}
+										<div className="group flex h-12 w-12 items-center justify-center rounded-full border border-purple-700 bg-black/80 p-[0.68rem] transition-all duration-300 hover:w-auto">
+											<img
+												src="/jerry-rice/fire icon.png"
+												alt="Trending"
+												className="h-6 w-6 flex-shrink-0 object-contain"
+											/>
+											<span className="hidden whitespace-nowrap font-medium text-white group-hover:ml-2 group-hover:inline">
+												trending speaker
+											</span>
+										</div>
+
+										{/* Seeking More Events Badge */}
+										<div className="group flex h-12 w-12 items-center justify-center rounded-full border border-purple-700 bg-black/80 p-[0.68rem] transition-all duration-300 hover:w-auto">
+											<img
+												src="/jerry-rice/briefcase icon.png"
+												alt="Seeking Events"
+												className="h-6 w-6 flex-shrink-0 object-contain"
+											/>
+											<span className="hidden whitespace-nowrap font-medium text-white group-hover:ml-2 group-hover:inline">
+												seeking more events
+											</span>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -805,6 +825,16 @@ export default function Variant2({ speaker }) {
 									))}
 								</div>
 							</div>
+
+							{/* Speaker Representation */}
+							{speaker.representation && (
+								<div className="mb-6 mt-3 text-base text-white">
+									<span className="font-medium">
+										Representation:
+									</span>{' '}
+									{speaker.representation}
+								</div>
+							)}
 						</div>
 
 						{/* Right Column - Sticky CTA */}
@@ -825,7 +855,7 @@ export default function Variant2({ speaker }) {
 									</div>
 
 									<div className="mb-6 text-purple-100">
-										<p className="mb-6 text-lg italic leading-relaxed">
+										<p className="mb-6 text-lg leading-relaxed">
 											{speaker.tagline}
 										</p>
 									</div>
@@ -874,7 +904,7 @@ export default function Variant2({ speaker }) {
 
 										{/* Price Popup */}
 										{showPricePopup && (
-											<div className="absolute bottom-full left-0 z-20 mb-2 w-72 rounded-lg border border-purple-600 bg-purple-800 p-6 shadow-xl">
+											<div className="absolute bottom-full left-0 z-20 mb-2 w-72 rounded-lg border border-[#00e99b] bg-[#1a0e31] p-6 shadow-xl">
 												<div className="text-sm leading-relaxed text-white">
 													<p className="mb-3">
 														Fees often vary based on
@@ -912,8 +942,8 @@ export default function Variant2({ speaker }) {
 									</p>
 
 									{/* Button */}
-									<button className="mb-8 w-full rounded-full border-2 border-purple-500 bg-purple-500 py-4 text-lg font-semibold text-white transition-all hover:font-bold">
-										Let&apos;s get started
+									<button className="mb-8 w-full rounded-full border-2 border-purple-500 bg-purple-500 py-4 text-xl font-semibold text-white transition-all hover:font-bold">
+										Get Started
 									</button>
 
 									{/* Save/Share buttons */}
